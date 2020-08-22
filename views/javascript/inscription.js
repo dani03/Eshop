@@ -1,7 +1,7 @@
 
 $document = $(document);
 $document.ready(function() {
-  
+  var allInputsGood = false;
   var name_user = "";
   var email_user = ""; 
   var password_user = "";
@@ -18,28 +18,16 @@ $document.ready(function() {
       $(selector).addClass("border-red");
       $(selector).removeClass("border-green");
       input_value = "";
+      allInputsGood = false;
+
       
     } else if (testimony(regex, input_value)){
      name_user = (selector === "#name_inscription") ? input_value : name_user;
      email_user = (selector === "#email_inscription") ? input_value : email_user;
      password_user = (selector === "#password_inscription") ? input_value : password_user;
      confirmPassword = (selector === "#confirmPassword_inscription") ? input_value : confirmPassword;
-     $(classError).html('<div class="text-success" style="color:green"><i class="fa fa-check-circle"> </i>'+ goodMessage +'</div>');
-     $(selector).addClass("border-green");
-     $(selector).removeClass("border-red");
      
-     
-     if(confirmPassword != ""){
-       alert("iniside");
-      var mdp_match = (confirmPassword === password_user) ? true : false;
-     
-      if(!mdp_match){
-         alert(confirmPassword+" :"+ password_user);
-         $(classError).html(error_message);
-         $(selector).addClass("border-red");
-         $(selector).removeClass("border-green");
-      }
-     }
+
 
      
      $.ajax({
@@ -58,27 +46,37 @@ $document.ready(function() {
       },
        success: function(feedback) {
          setTimeout(function(){
-          if (feedback['error'] == 'email_success'){
+          if(confirmPassword != "" && confirmPassword !== password_user){
+            feedback['error'] = "email_error";
+            allInputsGood = false;
+          }
+          if (feedback['error'] === 'email_success'){
             // alert("success");
             
              $(classError).html('<div class="text-success" style="color:green"><i class="fa fa-check-circle"> </i>'+ goodMessage +'</div>');
-              $(selecor).addClass("border-green");
+              $(selector).addClass("border-green");
               $(selector).removeClass("border-red");
-              // name_user = name_user;
-              // email_user = email_user;
-              // password_user = password_user;
-              // confirmPassword = confirmPassword;
-              // alert(name_user, email_user, confirmPassword, password_user );
+              name_user = name_user;
+              email_user = email_user;
+              password_user = password_user;
+              confirmPassword = confirmPassword;
+              allInputsGood = true;
+              // alert("nom: "+ name_user);
+              // alert("email: "+ email_user);
+              // alert("password: "+ password_user);
+              // alert("confirmation: "+ confirmPassword);
   
-           }else if(feedback['error'] == 'email_error'){
+           }else if(feedback['error'] === 'email_error'){
                // alert(feedback['message']);
                 $(classError).html(error_message);
-                $(selecor).addClass("border-red");
+                $(selector).addClass("border-red");
                 $(selector).removeClass("border-green");
                 email_user = "";
                 name_user = "";
                 password_user = "";
                 confirmPassword = "";
+                allInputsGood = false;
+                
                 
            }
          }, 1000);
@@ -88,12 +86,13 @@ $document.ready(function() {
      })
     } else {
      $(classError).html(error_message);
-     $(selecor).addClass("border-red");
+     $(selector).addClass("border-red");
      $(selector).removeClass("border-green");
      email_user = "";
      name_user = "";
      password_user = "";
      confirmPassword = "";
+     allInputsGood = false;
 
     }   
   }
@@ -113,11 +112,15 @@ $document.ready(function() {
     checkInputValidation('#password_inscription', "le mot de passe doit être composer de majuscule minuscule et de 8 caracteres", "valide", ".error-password", passwordRegex);
   })
   $('#confirmPassword_inscription').focusout(function(){
+    
     checkInputValidation('#confirmPassword_inscription', "les mot de passe ne sont pas identiques", "mot de passes identiques", ".error-confirmPassword", passwordRegex);
+    checkInputValidation('#password_inscription', "le mot de passe doit être composer de majuscule minuscule et de 8 caracteres", "valide", ".error-password", passwordRegex);
+    
   })
   
     $("#submit").click(function () {
       if (allInputsGood){
+       
         $.ajax({
           type: 'POST',
           url : 'profil.php?id=true',

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $the_page = "connexion";
 include_once("head_link.php");
 include_once("first_navigationBar.php");
@@ -20,17 +21,17 @@ include_once("first_navigationBar.php");
   <div id="fleche"><a class="pointeur"><i class="fas fa-sort-up fa-3x"></i></a></div>
 
   <div class="allInputs">
-    <form action="" method="post">
-      <input class="form-control form-control-lg firstInput outInConnexion allOfUs" type="text"  id= "name_inscription" placeholder="Nom" required/>
+    <form action="" id="formulaire_post" method="post">
+      <input class="form-control form-control-lg firstInput outInConnexion allOfUs" type="text"  id= "name_inscription" placeholder="Nom" name="userName" required/>
       <div class="error-name error"></div>
-      <input class="form-control form-control-lg inputButton allOfUs InConnexion " type="email" id= "email_inscription" placeholder="Exemple@gmail.com" required />
+      <input class="form-control form-control-lg inputButton allOfUs InConnexion " type="email" id= "email_inscription" placeholder="Exemple@gmail.com" name= "userEmail" required />
       <div class="error-email error"></div>
-      <input class="form-control form-control-lg inputButton allOfUs InConnexion " type="password" id= "password_inscription" placeholder="Mot de passe" required />
+      <input class="form-control form-control-lg inputButton allOfUs InConnexion " type="password" id= "password_inscription" placeholder="Mot de passe" name="userMDP" required />
         <div class="error-password error"></div>
-      <input class="form-control form-control-lg inputButton allOfUs outInConnexion" type="password" id= "confirmPassword_inscription" placeholder="Confirmation mot de passe" required />
+      <input class="form-control form-control-lg inputButton allOfUs outInConnexion" type="password" id= "confirmPassword_inscription" name="userConfirmMdp " placeholder="Confirmation mot de passe" required />
         <div class="error-confirmPassword error"></div>
       <input class="form-control form-control-lg inputButton mdp_" type="text" id= "forgot_passwordEmail" placeholder="Entrez votre email" required />
-      <button type="button" class="btn btn-outline-primary btn-lg validBtn">ENVOYER</button>
+      <button type="button" id="submit" name="submit" class="btn btn-outline-primary btn-lg validBtn">ENVOYER</button>
     </form>
   </div>
     <script src="javascript/script.JS"></script>
