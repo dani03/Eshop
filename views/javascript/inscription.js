@@ -116,5 +116,33 @@ $document.ready(function() {
     checkInputValidation('#confirmPassword_inscription', "les mot de passe ne sont pas identiques", "mot de passes identiques", ".error-confirmPassword", passwordRegex);
   })
   
+    $("#submit").click(function () {
+      if (allInputsGood){
+        $.ajax({
+          type: 'POST',
+          url : 'profil.php?id=true',
+           dataType: 'JSON',
+          data: $("#formulaire_post").serialize(),
+         
+      
+          success: function(feedback) {
+            if(feedback['response'] == "success"){
+              console.log("compte crée");
+            }else if(feedback['response'] == 'error'){
+              console.log("cet email existe compte ne peut pas etre créer");
+            }
+            
+          }
+        })
+      } else{
+        email_user = "";
+        name_user = "";
+        password_user = password_user;
+        confirmPassword = "";
+        alert("tout est bad");
+        
+      }
+      
+    })
 
 })
