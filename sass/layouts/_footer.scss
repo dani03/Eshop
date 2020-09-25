@@ -1,0 +1,67 @@
+footer{
+	margin-top: 20px;
+}
+.the_footer {
+	background-color:#E3F1FD;
+	display: flex;
+	height: 200px;
+	justify-content: space-around;
+	margin-top: 15px;
+  position: relative;
+  .first_Foot, .second_Foot{
+    height: 90px;
+    width:  90px;
+  }
+  .third_Foot{
+    height: 100px;
+    width:  200px;
+  }
+}
+.in_foot {
+	display: grid;
+	text-align: center;
+	align-self: center;
+	height: auto;
+  margin-top: -50px;
+  a{
+    padding-top: 2px;
+    color: $black-color;
+    text-decoration: none;
+  
+  }
+}
+footer::after{
+	margin-top: 80%;
+}
+
+/* profil page  de single product */
+.profil_button, .pannier_button {
+	text-transform: uppercase;
+}
+.pannier_button {
+	margin-right: 10px;
+}
+
+
+.social_medias {
+  position: relative;
+  margin-top: 6%;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  margin-bottom: 10px;
+  .whatsapp {
+    color: green;
+    &:hover{
+      color: green;
+    }
+  }
+}
+
+.insta{
+ color: RGB(225,48,108);
+  &:hover{
+    color: RGB(225,48,108);
+  }
+}

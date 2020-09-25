@@ -102,14 +102,22 @@ $document.ready(function() {
  
 
   $('#name_inscription').focusout(function(){
-    checkInputValidation('#name_inscription', "un nom est requis sans caractere ni chiffre!", "valide", ".error-name",name_regularExpress );
+    if($('#name_inscription').is(":visible")){
+      checkInputValidation('#name_inscription', "un nom est requis sans caractere ni chiffre!", "valide", ".error-name",name_regularExpress );
+    } 
   })
   $('#email_inscription').focusout(function(){
-    checkInputValidation('#email_inscription', " email invalide ou existant deja", "valide",".error-email",email_regex);
+    if($('#name_inscription').is(":visible")){
+      checkInputValidation('#email_inscription', " email invalide ou existant deja", "valide",".error-email",email_regex);
+    }
+    
   })
 
   $('#password_inscription').focusout(function(){
-    checkInputValidation('#password_inscription', "le mot de passe doit être composer de majuscule minuscule et de 8 caracteres", "valide", ".error-password", passwordRegex);
+    if($('#name_inscription').is(":visible")){
+      checkInputValidation('#password_inscription', "le mot de passe doit être composer de majuscule minuscule et de 8 caracteres", "valide", ".error-password", passwordRegex);
+    }
+    
   })
   $('#confirmPassword_inscription').focusout(function(){
     
@@ -126,14 +134,21 @@ $document.ready(function() {
           url : 'profil.php?id=true',
            dataType: 'JSON',
           data: $("#formulaire_post").serialize(),
-         
+          beforeSend: function(){
+            $(".progress-bar_show").addClass('progress-bar');
+          },
       
           success: function(feedback) {
-            if(feedback['response'] == "success"){
-              console.log("compte crée");
-            }else if(feedback['response'] == 'error'){
-              console.log("cet email existe compte ne peut pas etre créer");
-            }
+            setTimeout(() => {
+              if(feedback['response'] == "success"){
+                console.log("compte crée");
+                location = feedback.msg; 
+  
+              }else if(feedback['response'] == 'error'){
+                console.log("cet email existe compte ne peut pas etre créer");
+              }
+            }, 3000);
+            
             
           }
         })
@@ -147,5 +162,6 @@ $document.ready(function() {
       }
       
     })
-
+    $(".notification-connexion").hide();
+    
 })

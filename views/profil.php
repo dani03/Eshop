@@ -29,34 +29,20 @@ function getValueFrom(){
      $name = $_POST['userName'];
      $email = $_POST['userEmail'];
      $password = password_hash($_POST['userMDP'], PASSWORD_DEFAULT);
-      $theEmail = $db->selectAnEmail($email);
-      if($theEmail == 0){
-        $db = new PDO('mysql:host=localhost;dbname=eshop;', 'root', 'rootpassy3');
-        $query = $db->prepare("INSERT INTO utilisateurs(nameUser, email_user, user_password) VALUES(:nom,:email,:mot_de_passe)");
-      
-        $query->execute([
-          "nom" => $name,
-          "email" => $email,
-          "mot_de_passe" => $password
-        ]);
-         
-        if($query){
-          $_SESSION['user_name'] = $name;
-          echo json_encode(['response' => 'success', 'msg' => 'success.php']);
-        } else {
-         echo "query bad";
-        }
-    } else{
+     $theEmail = $db->selectAnEmail($email);
+     if( $theEmail == 0){
+      $db->insertUser($name, $email, $password);
+     } else {
       echo json_encode(['response' => 'error', 'msg' => 'success.php']);
-    }
+     }
+     
+     
 
 
   }
    
    
 }
-
-
 getValueFrom();
 
 

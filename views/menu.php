@@ -42,7 +42,7 @@
       </li>
     </ul>
   </div>
-  <?php if(! $connect_success){?>
+  <?php if(!$connect_success){?>
         <button class="btn btn-outline-primary pannier_button"><a href="panier.php"><i class="fas fa-cart-plus"></i> voir pannier</a></button>
         <button class="btn btn-outline-primary profil_button "><a href="views/connexion.php"><i class="fas fa-user"></i> profil</a></button>
       <?php }else{ ?>

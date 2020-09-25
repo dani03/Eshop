@@ -21,7 +21,11 @@ include_once("first_navigationBar.php");
   <div id="fleche"><a class="pointeur"><i class="fas fa-sort-up fa-3x"></i></a></div>
 
   <div class="allInputs">
+    
     <form action="" id="formulaire_post" method="post">
+    <div class="progress-bar_show">
+
+    </div>
       <input class="form-control form-control-lg firstInput outInConnexion allOfUs" type="text"  id= "name_inscription" placeholder="Nom" name="userName" required/>
       <div class="error-name error"></div>
       <input class="form-control form-control-lg inputButton allOfUs InConnexion " type="email" id= "email_inscription" placeholder="Exemple@gmail.com" name= "userEmail" required />
@@ -35,5 +39,7 @@ include_once("first_navigationBar.php");
     </form>
   </div>
     <script src="javascript/script.JS"></script>
+    <script src="javascript/connexion.js"></script>
     <script src="javascript/inscription.js"></script>
+
 </div>

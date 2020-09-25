@@ -3,6 +3,7 @@ $url = ($the_page === "index" || $the_page === "") ? "index.php" : "../index.php
 $urlPanier = ($the_page === "index" || $the_page === "") ? "views/panier.php" : "panier.php";
 $urlConnexion = ($the_page === "connexion" || $the_page === "panier") ? "connexion.php" : "views/connexion.php";
 
+
 ?>
 
 <nav class="navbar navbar-expand-lg row header_title navbar navbar-light" style="background-color: #e3f2fd;">

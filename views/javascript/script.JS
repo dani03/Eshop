@@ -69,15 +69,18 @@ $(document).ready(function(){
   //connexion 
   $("#connexion").click(function(){
     $(this).css({'color':'green'});
+
     $("#inscription").css({"color": "rgb(212, 208, 208)"});
+    
     $("#mdp_forgot").css({"color": ""});
     $('.inputButton').css({'marginTop':'1px'});
-    $(".pointeur").animate({ marginRight: '36%' });
+    $(".pointeur").animate({ 'marginRight': '36%' });
     $(".outInConnexion").slideUp("slow");
     $(".mdp_").slideUp("slow");
     $(".InConnexion").slideDown("slow");
     $('.inputButton').css({'marginBottom':'12px'});
     $('.firstInput').css({'marginBottom':'12px'});
+  
   });
   // inscription 
   $("#inscription").click(function(){
@@ -85,7 +88,7 @@ $(document).ready(function(){
     $("#mdp_forgot").css({"color": ""});
     $(this).css({'color':'green'});
     $('.firstInput').css({'marginBottom':'12px'});
-    $(".pointeur").animate({ marginRight: '-3%' });
+    $(".pointeur").animate({ 'marginRight': '-3%' });
     $(".allOfUs").slideDown("slow");
     $(".mdp_").slideUp("slow");
     $('.inputButton').css({'marginBottom':'12px'});
@@ -98,9 +101,9 @@ $(document).ready(function(){
     $(this).css({'color':'green'});
     $('.mdp_').css({'marginTop':'1px'});
     $('.mdp_').css({'marginBottom':'12px'});
-    $(".pointeur").animate({ marginRight: '-44%' });
+    $(".pointeur").animate({ 'marginRight': '-44%' });
     $(".mdp_").slideDown("slow");
     $(".allOfUs").slideUp("slow");
-
   });
+
 });
