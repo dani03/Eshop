@@ -1,0 +1,11 @@
+.btn-outline-primary a{
+  &:hover{
+    color: $white_color;
+    text-decoration: none;
+  }
+ 
+}
+
+.bg-light{
+  background-color: white;
+}

@@ -1,0 +1,20 @@
+body{
+	background-repeat: repeat;
+	background-position: top;
+  background-size: cover;
+  position: relative;
+}
+.container, .container-fluid {
+	margin-top: 15px;
+}
+.form-control {
+  width: 70%; 
+}
+
+nav {
+  width: 101%;
+  .navbar-brand{
+    margin-left: 10px;
+  }
+}
+

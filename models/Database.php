@@ -34,17 +34,22 @@ class Database {
          return $the_user;
         
   }
-  public function insertUser($name, $email, $password){
-      
-      $query = $this->pdo->prepare("INSERT INTO utilisateurs(nameUser, email_user, password_user) VALUES(?,?,?");
-      $query->execute([$name, $email, $password]);
+  public function insertUser(string $name, string $email, $password){
+    
+      $db = $this->connect();
+      $query = $db->prepare("INSERT INTO utilisateurs(nameUser, email_user, user_password) VALUES(:nom,:email,:mot_de_passe)");
+    
+      $query->execute([
+        "nom" => $name,
+        "email" => $email,
+        "mot_de_passe" => $password
+      ]);    
       if($query){
         $_SESSION['user_name'] = $name;
         echo json_encode(['response' => 'success', 'msg' => 'success.php']);
-      }else {
-        echo json_encode(['response' => 'error', 'msg' => 'success.php']);
-      }
-      
+      } else {
+       echo "query bad";
+      }   
   }
 
 }

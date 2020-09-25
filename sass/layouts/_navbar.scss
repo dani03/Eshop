@@ -1,0 +1,22 @@
+.navbar {
+	position: inherit;
+  top:2px;
+  .femmes {
+    border-left: none;
+    border-right: none;
+    margin-left: 5px;
+  }
+
+  .enfants{
+    border-right: none;
+    border-left: none;
+  
+  }
+  .hommes{
+    border-left: none;
+    margin-left: 5px;
+    &::after {
+      border: none;
+    }
+  }
+}

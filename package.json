@@ -1,0 +1,26 @@
+{
+  "name": "eshop",
+  "version": "1.0.0",
+  "description": "ventes de produits en ligne",
+  "main": "index.js",
+  "dependencies": {
+    "animate.css": "^4.1.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass sass/main.scss views/styles/styles.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dani03/Eshop.git"
+  },
+  "author": "daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dani03/Eshop/issues"
+  },
+  "homepage": "https://github.com/dani03/Eshop#readme"
+}

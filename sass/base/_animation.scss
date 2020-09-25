@@ -1,0 +1,92 @@
+.slide_carousel{
+	margin-top: 9%;
+  height: 100%;
+  width: 101%;
+  display: block;
+  text-align: center;
+	align-items: center;
+}
+
+.carte{
+  height: 69%;
+  width: auto;
+  margin-top: 37px;
+  margin-left: 12px;
+}
+
+.carousel{
+width: 102%;
+}
+.image_slide1{
+  height:430px;
+}
+
+@media only screen and (max-width:990px) {
+	.product-grid6 {
+		margin-bottom: 30px;
+	}
+}
+
+// single page presentation d'un element
+
+.caroussel_describe{
+  display: inline-flex;
+  margin-top: 9%;
+  height: 400px;
+}
+#description_text {
+text-align: center;
+
+}
+.imageInsideCaroussel{
+width: 71%;
+display: block;
+height: 100%;
+margin-left: 58px;
+}
+.small_form, .elements_options{
+margin-top: 20px;
+width: 100%;
+
+}
+.in_small_form {
+display: inline-flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+.option_elements_single {
+width: auto;
+margin-left: 1px;
+text-align: center;
+}
+// animation of progress bar
+
+@keyframes charging {
+  10% {
+    width: 10%;
+  };
+  30% {
+    width: 30%;
+  };
+  50% {
+    width: 50%;
+  };
+  70% {
+    width: 70%;
+  };
+  100% {
+    width: 100%;
+  }
+}
+// animation sur le message de connexion
+.notification-connexion {
+  background-color: rgb(230, 223, 223);
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 20px;
+  text-align: center;
+  color: rgb(102, 165, 82);
+  width: 40%;
+  
+}
